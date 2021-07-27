@@ -8,3 +8,4 @@ if k==27:
 elif k == ord('s'):
     cv.imwrite('gray.jpg',img1)
     cv.destroyAllWindows()
+    
