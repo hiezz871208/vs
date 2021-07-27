@@ -6,5 +6,5 @@ k=cv.waitKey(0)
 if k==27:
     cv.destroyAllWindows()
 elif k == ord('s'):
-    cv.imwrite('messigray.png',img1)
+    cv.imwrite('gray.jpg',img1)
     cv.destroyAllWindows()
