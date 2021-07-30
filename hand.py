@@ -88,8 +88,8 @@ class HandDetector:
 
             if draw:
                 cv2.rectangle(img, (bbox[0] - 20, bbox[1] - 20),
-                              (bbox[0] + bbox[2] + 20, bbox[1] + bbox[3] + 20),
-                              (0, 255, 0), 2)
+                            (bbox[0] + bbox[2] + 20, bbox[1] + bbox[3] + 20),
+                            (0, 255, 255), 2)
 
         return self.lmList, bboxInfo
 
