@@ -13,7 +13,7 @@ class FaceDetector:
     library.
     """
 
-    def __init__(self, minDetectionCon=0.1):
+    def __init__(self, minDetectionCon=0.5,model_selection=0):        
         """
         :param minDetectionCon: Minimum Detection Confidence Threshold
         """
@@ -21,15 +21,15 @@ class FaceDetector:
         self.minDetectionCon = minDetectionCon
         self.mpFaceDetection = mp.solutions.face_detection
         self.mpDraw = mp.solutions.drawing_utils
-        self.faceDetection = self.mpFaceDetection.FaceDetection(self.minDetectionCon,model_selection=1)
-
+        self.model_selection = model_selection
+        self.faceDetection = self.mpFaceDetection.FaceDetection(self.minDetectionCon,self.model_selection)
+        
     def findFaces(self, img, draw=True):
         """
         Find faces in an image and return the bbox info
         :param img: Image to find the faces in.
         :param draw: Flag to draw the output on the image.
-        :return: Image with or without drawings.
-                 Bounding Box list.
+        :return: Image with or without drawings.Bounding Box list.
         """
 
         imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
@@ -56,9 +56,9 @@ class FaceDetector:
 
 def main():
     # cap = cv2.VideoCapture(0)
-    detector = FaceDetector()
+    detector = FaceDetector(model_selection=1)
     while True:
-        img = cv2.imread('beibei.jpg')
+        img = cv2.imread('6.jpg')
         # success, img = cap.read()
         img, bboxs = detector.findFaces(img)
 

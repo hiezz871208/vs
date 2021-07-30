@@ -1,11 +1,12 @@
-from cvzone.FaceDetectionModule import FaceDetector
+from cvzone import FaceDetector
 import cv2
 
-cap = cv2.VideoCapture(1)
-detector = FaceDetector()
+#cap = cv2.VideoCapture(1)
+detector = FaceDetector(model_selection=0)
 
 while True:
-    success, img = cap.read()
+    img = cv2.imread('6.jpg')
+    #success, img = cap.read()
     img, bboxs = detector.findFaces(img)
 
     if bboxs:
